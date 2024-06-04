@@ -2,10 +2,12 @@ package com.hutech.bai_1.Services;
 
 
 import com.hutech.bai_1.Entities.User;
+import com.hutech.bai_1.Repositories.RoleRepository;
 import com.hutech.bai_1.Repositories.UserRepository;
 import com.hutech.bai_1.RequestEntities.UserCreate;
 import com.hutech.bai_1.RequestEntities.UserUpdate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.support.Repositories;
 import org.springframework.stereotype.Service;
 
 import java.text.DateFormat;
@@ -16,6 +18,8 @@ import java.util.List;
 public class UserService {
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private RoleRepository roleRepository;
 
     public List<User> getAllUser(){
         return userRepository.findAll();

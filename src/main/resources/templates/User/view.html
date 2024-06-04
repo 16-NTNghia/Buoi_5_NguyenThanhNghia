@@ -5,31 +5,51 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body layout:fragment="content">
-<form th:action="'/students/edit'" method="post" th:object="${student}">
-    <table>
-        <tr>
-            <td>ID</td>
-            <td><input type="text" readonly="readonly" th:field="*{id}"></td>
-        </tr>
-        <tr>
-            <td>First Name</td>
-            <td><input type="text" readonly="readonly" th:field="*{firstName}"></td>
-        </tr>
-        <tr>
-            <td>LastName Name</td>
-            <td><input type="text" readonly="readonly" th:field="*{lastName}"></td>
-        </tr>
-        <tr>
-            <td>Email</td>
-            <td><input type="text" readonly="readonly" th:field="*{email}"></td>
-        </tr>
-        <tr>
-            <td>DateOfBirth</td>
-            <td><input type="date" readonly="readonly" th:field="*{dateOfBirth}"></td>
-        </tr>
-    </table>
-    <a th:href="'/students/edit/'+${student.id}">Edit</a>
-</form>
+<body layout:fragment="content" th:object="${user}">
+    <div class="form-group mb-3">
+        <div class="form-floating">
+            <input class="form-control" type="text" placeholder="Nhập username" th:field="*{username}"/>
+            <label>Username</label>
+        </div>
+    </div>
+    <div class="form-group mb-3">
+        <div class="form-floating">
+            <input class="form-control" type="password" placeholder="Nhập mật khẩu" th:field="*{password}"/>
+            <label>Username</label>
+        </div>
+    </div>
+    <div class="form-group mb-3">
+        <div class="form-floating">
+            <input class="form-control" type="text" placeholder="Nhập Tên" th:field="*{firstName}"/>
+            <label>Username</label>
+        </div>
+    </div>
+    <div class="form-group mb-3">
+        <div class="form-floating">
+            <input class="form-control" type="text" placeholder="Nhập Họ" th:field="*{lastName}"/>
+            <label>Username</label>
+        </div>
+    </div>
+    <div class="form-group mb-3">
+        <div class="form-floating">
+            <input class="form-control" type="email" placeholder="Nhập email" th:field="*{email}"/>
+            <label>Username</label>
+        </div>
+    </div>
+    <div class="form-group mb-3">
+        <div class="form-floating">
+            <input class="form-control" type="date" th:field="*{birthDay}">
+            <label>Username</label>
+        </div>
+    </div>
+    <div class="form-group mb-3">
+        <div class="form-floating">
+            <label>Username</label>
+            <select>
+                <option th:each="role : ${roles}" th:text="${role.name_Role}" th:value="${role.ID_Role}"></option>
+            </select>
+        </div>
+    </div>
+    <a th:href="'/Users/edit/'+${user.id}">Edit</a>
 </body>
 </html>

@@ -40,7 +40,7 @@ public class RoleService {
 
     public Role UpdateRole(RoleUpdate roleUpdate){
         try{
-            Role role = new Role();
+            Role role = getRoleById(roleUpdate.getID_Role());
             role.setName_Role(roleUpdate.getRoleName());
             roleRepository.save(role);
             return role;

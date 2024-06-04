@@ -11,5 +11,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RoleUpdate {
+    private String ID_Role;
     private String roleName;
 }

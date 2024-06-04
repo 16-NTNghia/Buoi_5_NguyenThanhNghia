@@ -6,9 +6,14 @@
     <title>Title</title>
 </head>
 <body layout:fragment="content">
-<form action="#" th:object="${classroom}" th:action="'/classrooms/save'" method="post">
-    <input type="text" th:field="*{name}">
-    <input type="submit" value="submit">
+<form th:object="${roleCreate}" th:action="'/Roles/save'" method="post">
+    <div class="form-group mb-3">
+        <div class="form-floating">
+            <input class="form-control" type="text" placeholder="Nhập Role Name" th:field="*{roleName}">
+            <label>Name Role</label>
+        </div>
+    </div>
+    <input type="submit" value="Save">
 </form>
 </body>
 </html>

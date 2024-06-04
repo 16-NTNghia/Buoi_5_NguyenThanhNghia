@@ -1,78 +1,55 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{Fragments/lib}">
+      layout:decorate="~{Fragments/lib}" xmlns="http://www.w3.org/1999/html">
 <head th:replace="Fragments/lib.html::lib('Create')">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body layout:fragment="content">
-    <form th:action="'/Users/save'" method="post" th:object="${user}">
+    <form th:action="'/Users/save'" method="post" th:object="${userCreate}">
         <div class="form-group mb-3">
             <div class="form-floating">
-                <input class="form-control" placeholder="Nhập username" th:field="*{username}"/>
+                <input class="form-control" type="text" placeholder="Nhập username" th:field="*{username}"/>
                 <label>Username</label>
             </div>
         </div>
         <div class="form-group mb-3">
             <div class="form-floating">
-                <input class="form-control" placeholder="Nhập username" th:field="*{password}"/>
-                <label>Username</label>
+                <input class="form-control" type="password" placeholder="Nhập mật khẩu" th:field="*{password}"/>
+                <label>Mật khẩu</label>
             </div>
         </div>
          <div class="form-group mb-3">
             <div class="form-floating">
-                <input class="form-control" placeholder="Nhập username" th:field="*{firstName}"/>
-                <label>Username</label>
+                <input class="form-control" type="text" placeholder="Nhập Tên" th:field="*{firstName}"/>
+                <label>Tên</label>
             </div>
         </div>
          <div class="form-group mb-3">
             <div class="form-floating">
-                <input class="form-control" placeholder="Nhập username" th:field="*{lastName}"/>
-                <label>Username</label>
+                <input class="form-control" type="text" placeholder="Nhập Họ" th:field="*{lastName}"/>
+                <label>Họ</label>
             </div>
         </div>
          <div class="form-group mb-3">
             <div class="form-floating">
-                <input class="form-control" placeholder="Nhập username" th:field="*{username}/>
-                <label>Username</label>
+                <input class="form-control" type="email" placeholder="Nhập email" th:field="*{email}"/>
+                <label>Email</label>
             </div>
         </div>
          <div class="form-group mb-3">
-                            <div class="form-floating">
-                                <input class="form-control" placeholder="Nhập username" th:field="*{username}/>
-                <label>Username</label>
+             <div class="form-floating">
+                 <input class="form-control" type="date" th:field="*{birthDay}">
+                 <label>Ngày Sinh</label>
             </div>
         </div>
-
-            <tr>
-                <td>Password</td>
-                <td><input type="password" th:field="*{password}"></td>
-            </tr>
-            <tr>
-                <td>First Name</td>
-                <td><input type="text" th:field="*{firstName}"></td>
-            </tr>
-            <tr>
-                <td>Last Name</td>
-                <td><input type="text" th:field="*{lastName}"></td>
-            </tr>
-            <tr>
-                <td>Email</td>
-                <td><input type="text" th:field="*{email}"></td>
-            </tr>
-
-            <tr>
-                <td>DateOfBirth</td>
-                <td><input type="date" th:field="*{dateOfBirth}"></td>
-            </tr>
-            <tr>
-                <td>Classroom</td>
-                <td>
-                    <select>
-                        <option th:each="class : ${classes}" th:text="${class.name}" th:value="${class.classID}"></option>
-                    </select>
-                </td>
-            </tr>
+        <div class="form-group mb-3">
+            <label>Username</label>
+            </br>
+            <select class="form-control">
+                <option th:each="role : ${roles}" th:text="${role.name_Role}" th:value="${role.ID_Role}"></option>
+            </select>
+        </div>
         <input type="submit" value="Create">
     </form>
 </body>

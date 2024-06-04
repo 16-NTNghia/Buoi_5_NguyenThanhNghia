@@ -6,11 +6,30 @@
     <title>Title</title>
 </head>
 <body layout:fragment="content">
+    <table class="table">
+        <thead class="thead-light">
+        <td>
+            STT
+        </td>
+        <td>
+            ID
+        </td>
+        <td>
+            Name
+        </td>
+<!--        <td>
+            Action
+        </td>-->
+        </thead>
+        <tr th:each="role : ${roles}">
+            <td th:text="${roleStat.index + 1}"></td>
+            <td th:text="${role.ID_Role}"></td>
+            <td th:text="${role.name_Role}"></td>
+        </tr>
+    </table>
+    <button onclick="location.href='/Roles/new'">Create</button>
 <table>
-    <tr th:each="classroom : ${classrooms}">
-        <td th:text="${classroom.classID}"></td>
-        <td th:text="${classroom.name}"></td>
-    </tr>
+
 </table>
 </body>
 </html>

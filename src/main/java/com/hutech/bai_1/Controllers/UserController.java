@@ -32,9 +32,9 @@ public class UserController {
     }
     @GetMapping("/new")
     public String addUser(Model model){
-        User std = new User();
+        UserCreate userCreate = new UserCreate();
         List<Role> roles = roleService.getAllRole();
-        model.addAttribute("user", std);
+        model.addAttribute("userCreate", userCreate);
         model.addAttribute("roles", roles);
         return "User/add";
     }

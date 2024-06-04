@@ -26,7 +26,7 @@ public class RoleController {
 
     @GetMapping("/new")
     public String addRole(Model model) {
-        model.addAttribute("role", new Role());
+        model.addAttribute("roleCreate", new RoleCreate());
         return "Role/add";
     }
     @PostMapping("/save")
