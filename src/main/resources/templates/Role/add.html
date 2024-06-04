@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{Fragments/lib}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body layout:fragment="content">
+<form action="#" th:object="${classroom}" th:action="'/classrooms/save'" method="post">
+    <input type="text" th:field="*{name}">
+    <input type="submit" value="submit">
+</form>
+</body>
+</html>

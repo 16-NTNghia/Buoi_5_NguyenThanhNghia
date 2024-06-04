@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{Fragments/lib}">
+<head th:replace="Fragments/lib.html::lib('Create')">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body layout:fragment="content">
+    <form th:action="'/Users/save'" method="post" th:object="${user}">
+        <div class="form-group mb-3">
+            <div class="form-floating">
+                <input class="form-control" placeholder="Nhập username" th:field="*{username}"/>
+                <label>Username</label>
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <div class="form-floating">
+                <input class="form-control" placeholder="Nhập username" th:field="*{password}"/>
+                <label>Username</label>
+            </div>
+        </div>
+         <div class="form-group mb-3">
+            <div class="form-floating">
+                <input class="form-control" placeholder="Nhập username" th:field="*{firstName}"/>
+                <label>Username</label>
+            </div>
+        </div>
+         <div class="form-group mb-3">
+            <div class="form-floating">
+                <input class="form-control" placeholder="Nhập username" th:field="*{lastName}"/>
+                <label>Username</label>
+            </div>
+        </div>
+         <div class="form-group mb-3">
+            <div class="form-floating">
+                <input class="form-control" placeholder="Nhập username" th:field="*{username}/>
+                <label>Username</label>
+            </div>
+        </div>
+         <div class="form-group mb-3">
+                            <div class="form-floating">
+                                <input class="form-control" placeholder="Nhập username" th:field="*{username}/>
+                <label>Username</label>
+            </div>
+        </div>
+
+            <tr>
+                <td>Password</td>
+                <td><input type="password" th:field="*{password}"></td>
+            </tr>
+            <tr>
+                <td>First Name</td>
+                <td><input type="text" th:field="*{firstName}"></td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td><input type="text" th:field="*{lastName}"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" th:field="*{email}"></td>
+            </tr>
+
+            <tr>
+                <td>DateOfBirth</td>
+                <td><input type="date" th:field="*{dateOfBirth}"></td>
+            </tr>
+            <tr>
+                <td>Classroom</td>
+                <td>
+                    <select>
+                        <option th:each="class : ${classes}" th:text="${class.name}" th:value="${class.classID}"></option>
+                    </select>
+                </td>
+            </tr>
+        <input type="submit" value="Create">
+    </form>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{Fragments/lib}">
+<head th:replace="Fragments/lib.html::lib('Get all')">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section layout:fragment="content">
+    <table class="table">
+        <thead class="thead-light">
+        <td>
+            STT
+        </td>
+        <td>
+            ID
+        </td>
+        <td>
+            Name
+        </td>
+        <td>
+            Email
+        </td>
+        <td>
+            Password
+        </td>
+        <td>
+            Birth
+        </td>
+        <td>
+            Action
+        </td>
+        </thead>
+        <tr th:each="student : ${students}">
+            <td th:text="${studentStat.index+1}"></td>
+            <td th:text="${student.id}"></td>
+            <td th:text="|${student.lastName} ${student.firstName}|"></td>
+            <td th:text="${student.email}"></td>
+            <td th:text="${student.password}"></td>
+            <td th:text="${student.dateOfBirth}"></td>
+            <td th:text="${student.classroom.name}"></td>
+            <td>
+                <a th:href="'/students/view/'+${student.id}">View</a>
+                <a th:href="'/students/delete/'+${student.id}">Delete</a>
+            </td>
+        </tr>
+    </table>
+    <button onclick="location.href='/students/new'">Create</button>
+</section>
+
+</body>
+</html>
