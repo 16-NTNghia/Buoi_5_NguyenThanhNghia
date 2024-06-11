@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{Fragment/lib}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body layout:fragment="content">
+<form action="#" th:action="@{'/users/savechange'}" th:object="${user}" method="post">
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" placeholder="Nhập username" id="username" name="username" th:field="*{username}">
+        <label for="username">Username</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="password" class="form-control" placeholder="Nhập password" id="password" name="password" th:field="*{password}">
+        <label for="password">Password</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="email" class="form-control" placeholder="Nhập email" id="email" name="email" th:field="*{email}">
+        <label for="email">email</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" placeholder="Nhập họ" id="lastName" name="lastName" th:field="*{lastName}">
+        <label for="lastName">Họ</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" placeholder="Nhập tên" id="firstName" name="firstName" th:field="*{firstName}">
+        <label for="firstName">tên</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="date" class="form-control" placeholder="Nhập ngày sinh" id="birthDay" name="birthDay" th:field="*{birthDay}">
+        <label for="birthDay">Ngày Sinh</label>
+    </div>
+    <div class="form-floating mb-3">
+        <select th:field="*{role.role_id}">
+            <option id="Role" th:each="roleIn : ${roles}" th:value="${roleIn.role_id}" th:text="${roleIn.role_name}"></option>
+        </select>
+        <label for="Role">Role</label>
+    </div>
+
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>

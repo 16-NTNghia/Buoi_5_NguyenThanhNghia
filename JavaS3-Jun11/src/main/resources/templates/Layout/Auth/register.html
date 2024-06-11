@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{Fragment/lib}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body layout:fragment="content">
+    <form th:action="'/register_submit'" method="post" th:object="${registerUser}">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" placeholder="Nhập username" id="username" name="username" th:field="*{username}">
+            <label for="username">Username</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control" placeholder="Nhập password" id="password" name="password" th:field="*{password}">
+            <label for="password">Password</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" placeholder="Nhập email" id="email" name="email" th:field="*{email}">
+            <label for="email">email</label>
+        </div>
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>
